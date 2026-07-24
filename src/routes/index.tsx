@@ -27,16 +27,20 @@ export const Route = createFileRoute("/")({
 });
 
 const bankData = [
+  { label: "Nombre", value: "Katherinne Palomera" },
+  { label: "RUT", value: "18.402.057-2" },
+  { label: "Correo", value: "katherinnepalomera@gmail.com" },
   { label: "Banco", value: "Mercado Pago" },
   { label: "Tipo de cuenta", value: "Cuenta Vista" },
   { label: "N° de cuenta", value: "1070497271" },
-  { label: "RUT", value: "18.402.057-2" },
 ];
 
-const allBankData = `Banco: Mercado Pago
+const allBankData = `Nombre: Katherinne Palomera
+RUT: 18.402.057-2
+Correo: katherinnepalomera@gmail.com
+Banco: Mercado Pago
 Tipo de cuenta: Cuenta Vista
-N° de cuenta: 1070497271
-RUT: 18.402.057-2`;
+N° de cuenta: 1070497271`;
 
 function Sparkle({ className }: { className?: string }) {
   return (
@@ -89,10 +93,9 @@ function Index() {
         </p>
 
         <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-          Tu presencia es el mejor regalo que podríamos recibir. Sin embargo,
-          si deseas hacernos un obsequio, queremos contarles que nuestro hogar
-          ya está completo, por lo que hemos decidido destinar los regalos a
-          nuestra luna de miel.
+          Tu presencia es el mejor regalo que podríamos recibir.
+          De todas maneras, si deseas hacernos un obsequio, puedes ayudarnos a
+          seguir recorriendo el mundo 🌎
         </p>
 
         <article className="mt-14 w-full rounded-2xl border border-border bg-card/90 p-8 shadow-card backdrop-blur-sm md:p-10">
@@ -100,9 +103,6 @@ function Index() {
             <span className="text-xs uppercase tracking-[0.35em] text-[color:var(--sage)]">
               Datos para transferencia
             </span>
-            <h2 className="font-serif text-3xl text-foreground md:text-4xl">
-              Luna de miel
-            </h2>
             <div className="mt-2 h-px w-16 bg-[color:var(--blush)]" />
           </div>
 
@@ -115,7 +115,7 @@ function Index() {
                 <dt className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                   {row.label}
                 </dt>
-                <dd className="font-serif text-xl text-foreground md:text-2xl">
+                <dd className="text-xl font-bold text-foreground md:text-2xl">
                   {row.value}
                 </dd>
               </div>
