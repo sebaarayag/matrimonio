@@ -33,6 +33,11 @@ const bankData = [
   { label: "RUT", value: "18.402.057-2" },
 ];
 
+const allBankData = `Banco: Mercado Pago
+Tipo de cuenta: Cuenta Vista
+N° de cuenta: 1070497271
+RUT: 18.402.057-2`;
+
 function Sparkle({ className }: { className?: string }) {
   return (
     <svg
@@ -47,13 +52,13 @@ function Sparkle({ className }: { className?: string }) {
 }
 
 function Index() {
-  const [copied, setCopied] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
-  const copy = async (label: string, value: string) => {
+  const copyAll = async () => {
     try {
-      await navigator.clipboard.writeText(value);
-      setCopied(label);
-      setTimeout(() => setCopied(null), 1800);
+      await navigator.clipboard.writeText(allBankData);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
     } catch {}
   };
 
@@ -105,27 +110,39 @@ function Index() {
             {bankData.map((row) => (
               <div
                 key={row.label}
-                className="flex flex-col gap-2 py-4 text-left sm:flex-row sm:items-center sm:justify-between"
+                className="flex flex-col gap-1 py-4 text-left sm:flex-row sm:items-center sm:justify-between"
               >
                 <dt className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                   {row.label}
                 </dt>
-                <dd className="flex items-center gap-3">
-                  <span className="font-serif text-xl text-foreground md:text-2xl">
-                    {row.value}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => copy(row.label, row.value)}
-                    className="rounded-full border border-border bg-background/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-[color:var(--sage)] hover:text-[color:var(--sage)]"
-                    aria-label={`Copiar ${row.label}`}
-                  >
-                    {copied === row.label ? "Copiado ✓" : "Copiar"}
-                  </button>
+                <dd className="font-serif text-xl text-foreground md:text-2xl">
+                  {row.value}
                 </dd>
               </div>
             ))}
           </dl>
+
+          <button
+            type="button"
+            onClick={copyAll}
+            className="mt-6 w-full rounded-full border border-border bg-background/60 px-6 py-3 text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-[color:var(--sage)] hover:text-[color:var(--sage)]"
+          >
+            {copied ? "Copiado ✓" : "Copiar datos"}
+          </button>
+
+          <div className="mt-6 flex flex-col items-center gap-3 border-t border-border pt-6">
+            <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+              Regalo preferido
+            </span>
+            <a
+              href="https://www.thermomix.cl/producto/thermomix-tm6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-full border border-border bg-background/60 px-5 py-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-[color:var(--sage)] hover:text-[color:var(--sage)]"
+            >
+              Descúbrelo
+            </a>
+          </div>
         </article>
 
         <p className="font-script mt-10 text-3xl text-[color:var(--sage)]">
