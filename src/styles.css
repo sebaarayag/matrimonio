@@ -1,0 +1,98 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-blush: var(--blush);
+  --color-sage: var(--sage);
+  --color-cream: var(--cream);
+  --shadow-card: 0 20px 60px -30px color-mix(in oklab, var(--sage) 18%, transparent);
+  --font-serif: "Cormorant Garamond", "Cormorant", ui-serif, Georgia, serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Beth Ellen", cursive;
+}
+
+:root {
+  --radius: 0.75rem;
+  /* Paleta crudo/beige y azul noche */
+  --background: #f5f1e8;
+  --foreground: #2d2d2d;
+  --card: #fffcfb;
+  --card-foreground: #2d2d2d;
+  --popover: #fffcfb;
+  --popover-foreground: #2d2d2d;
+  --primary: #0b3c7d;
+  --primary-foreground: #f5f1e8;
+  --secondary: #e8e3d9;
+  --secondary-foreground: #2d2d2d;
+  --muted: #ebe6dc;
+  --muted-foreground: #6b6b6b;
+  --accent: #0b3c7d;
+  --accent-foreground: #f5f1e8;
+  --destructive: oklch(0.6 0.2 25);
+  --destructive-foreground: oklch(0.99 0.01 90);
+  --border: #ddd8ce;
+  --input: #ddd8ce;
+  --ring: #0b3c7d;
+
+  --blush: #0b3c7d;
+  --sage: #0b3c7d;
+  --cream: #f5f1e8;
+}
+
+.dark {
+  --background: oklch(0.22 0.02 150);
+  --foreground: oklch(0.96 0.01 90);
+  --card: oklch(0.28 0.02 150);
+  --card-foreground: oklch(0.96 0.01 90);
+  --primary: oklch(0.75 0.06 145);
+  --primary-foreground: oklch(0.22 0.02 150);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.7 0.06 145);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility font-script {
+  font-family: var(--font-script);
+}
