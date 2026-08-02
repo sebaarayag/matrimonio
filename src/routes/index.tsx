@@ -115,7 +115,7 @@ function Index() {
                 <dt className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                   {row.label}
                 </dt>
-                <dd className="text-xl font-bold text-foreground md:text-2xl">
+                <dd className="text-lg font-bold text-foreground md:text-xl">
                   {row.value}
                 </dd>
               </div>
@@ -130,19 +130,6 @@ function Index() {
             {copied ? "Copiado ✓" : "Copiar datos"}
           </button>
 
-          <div className="mt-6 flex flex-col items-center gap-3 border-t border-border pt-6">
-            <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              Regalo preferido
-            </span>
-            <a
-              href="https://www.thermomix.cl/producto/thermomix-tm6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex rounded-full border border-border bg-background/60 px-5 py-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:border-[color:var(--sage)] hover:text-[color:var(--sage)]"
-            >
-              Descúbrelo
-            </a>
-          </div>
         </article>
 
         <p className="font-script mt-10 text-3xl text-[color:var(--sage)]">
